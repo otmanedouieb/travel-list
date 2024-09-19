@@ -39,7 +39,7 @@ export default function App() {
         onDeleteItem={deleteItemHandler}
         onToggleItem={handelToggleItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
