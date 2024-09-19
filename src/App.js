@@ -22,11 +22,23 @@ export default function App() {
     setItems((previousItems) => previousItems.filter((item) => item.id !== id));
   }
 
+  function handelToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItem={addItemHandler} />
-      <PackingList items={items} onDeleteItem={deleteItemHandler} />
+      <PackingList
+        items={items}
+        onDeleteItem={deleteItemHandler}
+        onToggleItem={handelToggleItem}
+      />
       <Stats />
     </div>
   );
